@@ -2,6 +2,10 @@
 
 https://kmp.jetbrains.com/
 
+## Web
+
+ `Gradle` -> `Tasks` -> `other` -> `wasmJsRun`
+
 ---
 
 
