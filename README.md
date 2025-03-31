@@ -114,6 +114,38 @@ plugins {
 
 ```
 
+`dependencies`
+
+```groovy
+androidMain.dependencies {
+  //https://mvnrepository.com/artifact/org.jetbrains.compose.ui/ui-tooling-preview 1.7.3
+  implementation(compose.preview) //implementation("org.jetbrains.compose.ui:ui-tooling-preview")
+  //https://mvnrepository.com/artifact/androidx.activity/activity-compose
+  implementation(libs.androidx.activity.compose) //implementation("androidx.activity:activity-compose:1.10.1")
+}
+commonMain.dependencies {
+  //https://mvnrepository.com/artifact/org.jetbrains.compose.runtime/runtime 1.7.3
+  implementation(compose.runtime) //implementation("org.jetbrains.compose.runtime:runtime")
+  //https://mvnrepository.com/artifact/org.jetbrains.compose.foundation/foundation 1.7.3
+  implementation(compose.foundation)  //implementation("org.jetbrains.compose.foundation:foundation")
+  //https://mvnrepository.com/artifact/org.jetbrains.compose.material/material 1.7.3
+  implementation(compose.material) //implementation("org.jetbrains.compose.material:material")
+  //https://mvnrepository.com/artifact/org.jetbrains.compose.material3/material3 1.7.3
+  //implementation(compose.material3) //implementation("org.jetbrains.compose.material3:material3")
+  //https://mvnrepository.com/artifact/org.jetbrains.compose.ui/ui 1.7.3
+  implementation(compose.ui) //implementation("org.jetbrains.compose.ui:ui")
+  //https://mvnrepository.com/artifact/org.jetbrains.compose.components/components-resources 1.7.3
+  implementation(compose.components.resources) //implementation("org.jetbrains.compose.components:components-resources")
+  //https://mvnrepository.com/artifact/org.jetbrains.compose.components/components-ui-tooling-preview 1.7.3
+  implementation(compose.components.uiToolingPreview) //implementation("org.jetbrains.compose.components:components-ui-tooling-preview")
+  //https://mvnrepository.com/artifact/org.jetbrains.androidx.lifecycle/lifecycle-viewmodel 2.8.4
+  implementation(libs.androidx.lifecycle.viewmodel) //implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel:2.8.4")
+  //https://mvnrepository.com/artifact/org.jetbrains.androidx.lifecycle/lifecycle-runtime-compose 2.8.4
+  implementation(libs.androidx.lifecycle.runtime.compose) //implementation("org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose:2.8.4")
+  implementation(projects.shared) //
+}
+```
+
 ---
 
 
