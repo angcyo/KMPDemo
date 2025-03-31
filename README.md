@@ -4,7 +4,11 @@ https://kmp.jetbrains.com/
 
 ## Web
 
- `Gradle` -> `Tasks` -> `other` -> `wasmJsRun`
+`Gradle` -> `Tasks` -> `other` -> `wasmJsRun`
+
+## Desktop
+
+`Gradle` -> `Tasks` -> `compose desktop` -> `run`
 
 ---
 
