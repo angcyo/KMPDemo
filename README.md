@@ -18,6 +18,102 @@
 
 `Gradle` -> `Tasks` -> `compose desktop` -> `run`
 
+
+## project
+
+### settings.gradle.kts
+
+```groovy
+rootProject.name = "KMPDemo"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+pluginManagement {
+    repositories {
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
+        mavenCentral()
+    }
+}
+
+include(":composeApp")
+include(":server")
+include(":shared")
+```
+
+### build.gradle.kts
+
+```groovy
+plugins {
+    // this is necessary to avoid the plugins to be loaded multiple times
+    // in each subproject's classloader
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.composeMultiplatform) apply false
+    alias(libs.plugins.composeCompiler) apply false
+    alias(libs.plugins.kotlinJvm) apply false
+    alias(libs.plugins.kotlinMultiplatform) apply false
+}
+
+//--
+
+plugins {
+    // this is necessary to avoid the plugins to be loaded multiple times
+    // in each subproject's classloader
+    id("com.android.application").version(libs.versions.agp).apply(false)
+    //id("com.android.application").version("8.5.2").apply(false)
+    id("com.android.library").version("8.5.2").apply(false)
+    id("org.jetbrains.kotlin.plugin.compose").version("2.1.10").apply(false)
+    //
+    id("org.jetbrains.compose").version("1.7.3").apply(false) //diff
+    id("org.jetbrains.kotlin.jvm").version("2.1.10").apply(false) //diff //desktop
+    id("org.jetbrains.kotlin.multiplatform").version("2.1.10").apply(false) //diff
+}
+```
+
+## app
+
+### build.gradle.kts
+
+```groovy
+plugins {
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.composeMultiplatform)
+    //
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.composeCompiler)
+}
+
+//--
+
+plugins {
+  id("com.android.application")
+  id("org.jetbrains.kotlin.plugin.compose")
+  //
+  id("org.jetbrains.kotlin.multiplatform") //diff
+  id("org.jetbrains.compose")              //diff
+}
+
+```
+
 ---
 
 
